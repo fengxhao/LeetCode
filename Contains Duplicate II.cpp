@@ -1,4 +1,4 @@
-//Contains Duplicate II
+//Contains Duplicate 2
 // Given an array of integers and an integer k, 
 //find out whether there are two distinct indices i and j in the array such that
 // nums[i] = nums[j] and the difference between i and j is at most k.
@@ -16,5 +16,27 @@ public:
                 mp[nums[i]]=i;
         }
         return false;
+    }
+};
+
+//Contains Duplicate 1
+//如果给定的数组里面都是唯一值得话return FALSE，如果有有值超过两个的话return true;
+class Solution {
+public:
+    bool containsDuplicate(vector<int>& nums) {
+        unordered_map<int ,int> mp;
+        if(nums.size()<2)
+        return false;
+        for (int i=0;i<nums.size();i++)
+        {
+            mp[nums[i]]++;
+        }
+        for (auto &i :mp)
+        {
+            if(i.second>1)
+            return true;
+        }
+        return false;
+        
     }
 };
